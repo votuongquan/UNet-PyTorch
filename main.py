@@ -8,7 +8,7 @@ from carvana_dataset import CarvanaDataset
 
 if __name__ == "__main__":
     LEARNING_RATE = 3e-4
-    BATCH_SIZE = 32
+    BATCH_SIZE = 16
     EPOCHS = 3
     DATA_PATH = "./UNet-PyTorch/data"
     MODEL_SAVE_PATH = "./UNet-PyTorch/models/unet.pth"
