@@ -14,7 +14,7 @@ class CarvanaDataset(Dataset):
             self.masks = sorted([root_path+"/train_masks/"+i for i in os.listdir(root_path+"/train_masks/")])
         
         self.transform = transforms.Compose([
-            transforms.Resize((1024, 1024)),
+            transforms.Resize((512, 512)),
             transforms.ToTensor()])
 
     def __getitem__(self, index):
