@@ -4,17 +4,18 @@ from torch.utils.data import DataLoader, random_split
 from tqdm import tqdm
 
 from unet import UNet
-from carvana_dataset import CarvanaDataset
+from Human_dataset import HumanDataset
 
 if __name__ == "__main__":
-    LEARNING_RATE = 3e-4
-    BATCH_SIZE = 32
-    EPOCHS = 3
+    LEARNING_RATE = 0.001
+    BATCH_SIZE = 8
+    EPOCHS = 10
     DATA_PATH = "./UNet-PyTorch/data"
     MODEL_SAVE_PATH = "./UNet-PyTorch/models/unet.pth"
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    train_dataset = CarvanaDataset(DATA_PATH)
+    print(device)
+    train_dataset = HumanDataset(DATA_PATH)
 
     generator = torch.Generator().manual_seed(42)
     train_dataset, val_dataset = random_split(train_dataset, [0.8, 0.2], generator=generator)
@@ -27,6 +28,8 @@ if __name__ == "__main__":
                                 shuffle=True)
 
     model = UNet(in_channels=3, num_classes=1).to(device)
+    checkpoint = torch.load("/content/UNet-PyTorch/models/unet.pth")
+    model.load_state_dict(checkpoint)
     optimizer = optim.AdamW(model.parameters(), lr=LEARNING_RATE)
     criterion = nn.BCEWithLogitsLoss()
 
