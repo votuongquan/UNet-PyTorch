@@ -28,8 +28,6 @@ if __name__ == "__main__":
                                 shuffle=True)
 
     model = UNet(in_channels=3, num_classes=1).to(device)
-    checkpoint = torch.load("/content/UNet-PyTorch/models/unet.pth")
-    model.load_state_dict(checkpoint)
     optimizer = optim.AdamW(model.parameters(), lr=LEARNING_RATE)
     criterion = nn.BCEWithLogitsLoss()
 
