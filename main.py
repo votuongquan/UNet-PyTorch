@@ -7,9 +7,15 @@ from unet import UNet
 from Human_dataset import HumanDataset
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     LEARNING_RATE = 0.001
     BATCH_SIZE = 8
     EPOCHS = 10
+=======
+    LEARNING_RATE = 3e-4
+    BATCH_SIZE = 16
+    EPOCHS = 3
+>>>>>>> 691e1e7b5876273240f4d3ef61b24589a71ccfd4
     DATA_PATH = "./UNet-PyTorch/data"
     MODEL_SAVE_PATH = "./UNet-PyTorch/models/unet.pth"
 
