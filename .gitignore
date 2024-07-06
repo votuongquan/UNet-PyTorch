@@ -1,6 +1,5 @@
 media
 __pycache__
 .DS_Store
-models
-notes.txt
+\notes.txt
 storage

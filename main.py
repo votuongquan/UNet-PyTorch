@@ -10,8 +10,8 @@ if __name__ == "__main__":
     LEARNING_RATE = 0.0001
     BATCH_SIZE = 8
     EPOCHS = 50
-    DATA_PATH = "./UNet-PyTorch/data"
-    MODEL_SAVE_PATH = "./UNet-PyTorch/models/unet.pth"
+    DATA_PATH = "./data"
+    MODEL_SAVE_PATH = "./models/unet.pth"
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(device)
