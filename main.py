@@ -9,7 +9,7 @@ from Human_dataset import HumanDataset
 if __name__ == "__main__":
     LEARNING_RATE = 0.0001
     BATCH_SIZE = 8
-    EPOCHS = 50
+    EPOCHS = 100
     DATA_PATH = "./data"
     MODEL_SAVE_PATH = "./models/unet.pth"
 
@@ -67,5 +67,9 @@ if __name__ == "__main__":
         print(f"Train Loss EPOCH {epoch+1}: {train_loss:.4f}")
         print(f"Valid Loss EPOCH {epoch+1}: {val_loss:.4f}")
         print("-"*30)
-
+        
+    # if models folder does not exist, create it
+    if not os.path.exists("./models"):
+        os.makedirs
+    
     torch.save(model.state_dict(), MODEL_SAVE_PATH)
